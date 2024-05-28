@@ -71,7 +71,6 @@ def get_normal_data():
     x_u_train, _, y_u_train, _ = train_test_split(x_star, exact_u.reshape(-1, 1), test_size=u_size)
     
     get_data = {
-    "x_star": x_star.tolist(),
     "exact_u": exact_u.tolist(),
     "x_u_train": x_u_train.tolist(),
     "y_u_train": y_u_train.tolist(),
@@ -87,4 +86,5 @@ def get_normal_data():
     file_path = "get_data.json"
     with open(file_path, "w") as json_file:
         json.dump(get_data, json_file, indent=4)
+    return x_star
     
