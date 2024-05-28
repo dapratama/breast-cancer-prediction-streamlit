@@ -260,7 +260,7 @@ def data_plot():
 def ann_plot():
     ann_layers, ann_neurons, ann_iters, apply_restarting, ann_cycles, ann_optimizer, new_model = get_architecture()
 
-    x_u_train, y_u_train, x_b0_train, y_b0_train, x_b_train, y_b_train, _, _, _, _ = get_data()
+    _, x_u_train, y_u_train, x_b0_train, y_b0_train, x_b_train, y_b_train, _, _, _, _ = get_data()
     x_star = get_normal_data()
     
     x_train = np.vstack([x_b_train, x_b0_train, x_u_train])
