@@ -1,0 +1,9 @@
+{
+    "layers": 1,
+    "neurons": 10,
+    "iterations": 10,
+    "apply_restarting": "Yes",
+    "cycles": 5,
+    "optimizer": "Adadelta",
+    "new_model": "Yes"
+}
