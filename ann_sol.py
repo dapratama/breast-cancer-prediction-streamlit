@@ -240,7 +240,7 @@ def plot_final_results(loss_values, val_loss_cycle, num_cycles, final_prediction
 def data_plot():
     
     get_normal_data()
-    x_u_train, _, x_b0_train, _, x_b_train, _, _, _, _, _ = get_data()
+    _, x_u_train, _, x_b0_train, _, x_b_train, _, _, _, _, _ = get_data()
 
     fig = go.Figure()
 
