@@ -93,6 +93,7 @@ class StreamlitProgressBarCallback(keras.callbacks.Callback):
             # prediction plot figure
             if self.model is not None:
                 # Generate predictions
+                x_star = np.array(x_star)
                 predictions = self.model.predict(x_star)
                 self.prediction_plots.append(predictions)
 
