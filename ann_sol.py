@@ -76,7 +76,7 @@ class StreamlitProgressBarCallback(keras.callbacks.Callback):
         if self.loss_values:
             fig = plt.figure(figsize=(10, 7))
 
-            x_star, _, _, _, _, _, _, _, _, _, _, _ = get_data()
+            x_star = get_normal_data()
 
             ax2 = fig.add_subplot(122)
             
@@ -121,7 +121,7 @@ class StreamlitProgressBarCallback(keras.callbacks.Callback):
 def plot_final_results(loss_values, val_loss_cycle, num_cycles, final_predictions):
         
         _, _, _, _, ann_cycles, _, _ = get_architecture()
-        _, _, _, _, _, _, _, _, mask1, num_circle, circle_center, circle_radius = get_data()
+        _, _, _, _, _, _, _, mask1, num_circle, circle_center, circle_radius = get_data()
         # loss plot figure
 
         fig = plt.figure(figsize=(10, 7))
@@ -240,7 +240,7 @@ def plot_final_results(loss_values, val_loss_cycle, num_cycles, final_prediction
 def data_plot():
     
     get_normal_data()
-    _, _, x_u_train, _, x_b0_train, _, x_b_train, _, _, _, _, _ = get_data()
+    x_u_train, _, x_b0_train, _, x_b_train, _, _, _, _, _ = get_data()
 
     fig = go.Figure()
 
@@ -260,7 +260,8 @@ def data_plot():
 def ann_plot():
     ann_layers, ann_neurons, ann_iters, apply_restarting, ann_cycles, ann_optimizer, new_model = get_architecture()
 
-    x_star, _, x_u_train, y_u_train, x_b0_train, y_b0_train, x_b_train, y_b_train, _, _, _, _ = get_data()
+    x_u_train, y_u_train, x_b0_train, y_b0_train, x_b_train, y_b_train, _, _, _, _ = get_data()
+    x_star = get_normal_data()
     
     x_train = np.vstack([x_b_train, x_b0_train, x_u_train])
     y_train = np.vstack([y_b_train, y_b0_train, y_u_train])
