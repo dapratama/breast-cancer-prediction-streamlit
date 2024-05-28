@@ -96,8 +96,12 @@ class StreamlitProgressBarCallback(keras.callbacks.Callback):
                 try:
                     predictions = self.model.predict(x_star)
                     self.prediction_plots.append(predictions)
+                except BrokenPipeError as bpe:
+                    st.error("A BrokenPipeError occurred. Likely due to client disconnection.")
+                    st.error(f"Details: {bpe}")
                 except Exception as e:
                     st.error(f"An error occurred: {e}")
+                    raise
 
                 if len(self.prediction_plots) > 1:
                     nr, nt = (100, 100)   # means that in the domain there are 100.000 data points
