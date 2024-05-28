@@ -93,10 +93,11 @@ class StreamlitProgressBarCallback(keras.callbacks.Callback):
             # prediction plot figure
             if self.model is not None:
                 # Generate predictions
-                st.write(f"x_star shape: {x_star.shape}")
-                predictions = self.model.predict(x_star)
-                st.write("Predictions:", predictions)
-                self.prediction_plots.append(predictions)
+                try:
+                    predictions = self.model.predict(x_star)
+                    self.prediction_plots.append(predictions)
+                except Exception as e:
+                    st.error(f"An error occurred: {e}")
 
                 if len(self.prediction_plots) > 1:
                     nr, nt = (100, 100)   # means that in the domain there are 100.000 data points
