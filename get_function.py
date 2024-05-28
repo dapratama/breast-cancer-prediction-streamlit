@@ -42,7 +42,6 @@ def get_data():
     with open('get_data.json', "r") as json_file:
         parameters = json.load(json_file)
 
-    x_star = np.array(parameters["x_star"])
     exact_u = np.array(parameters["exact_u"])
     x_u_train = np.array(parameters["x_u_train"])
     y_u_train = np.array(parameters["y_u_train"])
@@ -55,7 +54,7 @@ def get_data():
     location = parameters['location']
     radius = parameters['radius']
 
-    return x_star, exact_u, x_u_train, y_u_train, x_b0_train, y_b0_train, x_b_train, y_b_train, mask1, num_circle, location, radius
+    return exact_u, x_u_train, y_u_train, x_b0_train, y_b0_train, x_b_train, y_b_train, mask1, num_circle, location, radius
 
 def build_model(num_layers, neurons_per_layer):
     #initializers = keras.initializers.RandomUniform(minval=0., maxval=100.)
