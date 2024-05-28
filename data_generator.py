@@ -8,10 +8,10 @@ from get_function import get_value
 from sklearn.model_selection import train_test_split
 
 def get_normal_data():
-    nr, nt = (50, 50)
+    nr, nt = (100, 100)
     r_max, N_b, N_u = get_value()
-    b_size = (50 - N_b)/100
-    u_size = (50 - N_u)/100
+    b_size = (100 - N_b)/100
+    u_size = (100 - N_u)/100
     zeniths = np.linspace(0, r_max, nr)
     azimuths = np.radians(np.linspace(0, 180, nt))
     data_u = np.array(pd.read_csv('prediction.csv', header=None))
